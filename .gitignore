@@ -1,3 +1,10 @@
+# Virtual environment (but NOT src)
+dj_ajax/Lib/
+dj_ajax/Scripts/
+dj_ajax/Include/
+dj_ajax/pyvenv.cfg
+
+# Python / Django
 __pycache__/
 *.pyc
 db.sqlite3
