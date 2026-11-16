@@ -126,7 +126,7 @@ postForm.addEventListener('submit', (e) => {
     e.preventDefault();
     $.ajax({
         type: 'POST',
-        url: 's',
+        url: '',
         data: {
             'csrfmiddlewaretoken': csrf[0].value,
             'title': title.value,  
@@ -160,7 +160,8 @@ postForm.addEventListener('submit', (e) => {
                 `)
 
                 likeUnlikePosts()
-                $('#addPostModal').model('hide')
+                bootstrap.Modal.getInstance(document.getElementById('addPostModel')).hide()
+                postForm.reset()
                 handleAlerts('success', 'New post added!')
         },
         error: function(error){
