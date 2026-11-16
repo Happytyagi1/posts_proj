@@ -11,6 +11,9 @@ const title = document.getElementById('id_title');
 const body = document.getElementById('id_body');
 const csrf = document.getElementsByName('csrfmiddlewaretoken');
 
+const url = window.location.href
+
+
 const alertbox = document.getElementById('alert-box')
 console.log('csrf', csrf[0].value)
 
@@ -73,7 +76,7 @@ $.ajax({ type: 'GET',
         console.log(data)
         data.forEach(el => {
             postsBox.innerHTML += `
-            <div class="card mb-2">
+            <div class="card mb-2"> 
                 <div class="card-body">
                     <h5 class="card-title">${el.title}</h5>
                     <p class="card-text">${el.body}</p>
@@ -82,7 +85,7 @@ $.ajax({ type: 'GET',
                     <div class="card-footer">
                     <div class="row">
                         <div class="col-2">
-                        <a href="#" class="btn btn-primary">Details</a>
+                        <a href="${url}${el.id}" class="btn btn-primary">Details</a>
                         </div>
                         <div class="col-2">
                             <form class="like-unlike-form" data-form-id="${el.id}">
