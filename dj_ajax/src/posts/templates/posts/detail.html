@@ -58,6 +58,35 @@
   </div>
 </div>
 
+    <!-- carosel-->
+    {% if obj.get_photos %}
+     <div id="carouselStackedBottom" class="carousel slide mb-3">
+  <div class="carousel-inner rounded-5">
+        {% for p in obj.get_photos%}
+        <div class="carousel-item {% if forloop.counter == 1%}active{% endif %}">
+      <img src="{{p.image.url}}" class="d-block w-100" alt="{{obj.pk}}">
+       </div>
+        {% endfor %}
+
+  </div>
+  <div>
+    <button class="btn-icon btn-sm" type="button" data-bs-target="#carouselStackedBottom" data-bs-slide="prev">
+      <span class="carousel-icon-prev" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="btn-icon btn-sm" type="button" data-bs-target="#carouselStackedBottom" data-bs-slide="next">
+      <span class="carousel-icon-next" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+    {% else %}
+    <div class="mt-2 mb-2">NO photo to show</div>
+    {% endif %}
+     
+
+
 <button id ="back-btn" class="btn btn-info">back</button>
 <button id="update-btn" class="btn btn-primary not-visible" data-bs-toggle="modal" data-bs-target="#updateModal">update</button>
 <button id="delete-btn" class="btn btn-danger not-visible" data-bs-toggle="modal" data-bs-target="#deleteModal">delete</button>
